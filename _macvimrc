@@ -422,6 +422,7 @@ function! Python_init()
 endfunction
 "jedi
 let g:jedi#completions_enabled = 0
+let g:jedi#force_py_version = 3
 let g:jedi#auto_vim_configuration = 0
 if !exists('g:neocomplete#force_omni_input_patterns')
     let g:neocomplete#force_omni_input_patterns = {}
@@ -448,12 +449,19 @@ let g:neocomplete#force_omni_input_patterns.python = '\%([^. \t]\.\|^\s*@\|^\s*f
 
 
 "VimShell
-nnoremap ,,v <Esc>:VimShellCreate<cr>
+nnoremap ,,v <Esc>:VimShell<cr>
+let g:vimshell_max_directory_stack=200
+let g:vimshell_max_command_history=2000
+let g:vimshell_editor_command="/usr/local/Cellar/macvim/8.0-119_1/MacVim.app/Contents/MacOS/Vim" 
 autocmd FileType vimshell call VimInit()
 function! VimInit()
     call vimshell#altercmd#define('l', 'll')
     call vimshell#altercmd#define('ll', 'ls -l')
     nnoremap <buffer> G <Esc>GA
+    nunmap <buffer> <c-l>
+    "nunmap <buffer> <c-h>
+    nunmap <buffer> <c-k>
+    "nunmap <buffer> <c-j>
 endfunction
 
 
@@ -626,27 +634,27 @@ if !exists('g:neocomplete#sources#omni#input_patterns')
     let g:neocomplete#sources#omni#input_patterns = {}
 endif
 let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-"let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-"let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 
 """----------------------------------------------------------------------------------------
 " file is large from 100mb
 let g:LargeFile = 1024 * 1024 * 100
 augroup LargeFile 
- autocmd BufReadPre * let f=getfsize(expand("<afile>")) | if f > g:LargeFile || f == -2 | call LargeFile() | endif
+    autocmd BufReadPre * let f=getfsize(expand("<afile>")) | if f > g:LargeFile || f == -2 | call LargeFile() | endif
 augroup END
 
 function! LargeFile()
- " no syntax highlighting etc
- set eventignore+=FileType
- " save memory when other file is viewed
- setlocal bufhidden=unload
- " is read-only (write with :w new_filename)
- setlocal buftype=nowrite
- " no undo possible
- setlocal undolevels=-1
- " display message
- autocmd VimEnter *  echo "The file is larger than " . (g:LargeFile / 1024 / 1024) . " MB, so some options are changed (see .vimrc for details)."
+    " no syntax highlighting etc
+    set eventignore+=FileType
+    " save memory when other file is viewed
+    setlocal bufhidden=unload
+    " is read-only (write with :w new_filename)
+    setlocal buftype=nowrite
+    " no undo possible
+    setlocal undolevels=-1
+    " display message
+    autocmd VimEnter *  echo "The file is larger than " . (g:LargeFile / 1024 / 1024) . " MB, so some options are changed (see .vimrc for details)."
 endfunction
 """----------------------------------------------------------------------------------------
 
