@@ -1,3 +1,5 @@
+
+
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -12,6 +14,7 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
+
 """----------------------------------------------------------------------------------------
 Plugin 'SuperTab'
 Plugin 'dkprice/vim-easygrep'
@@ -252,6 +255,9 @@ map ZZ <nop>
 map <s-Space> <nop>
 
 
+map <D-e> <esc>
+cmap <D-e> <esc>
+
 noremap <C-J> <esc><C-W>j
 noremap <C-K> <esc><C-W>k
 noremap <C-H> <esc><C-W>h
@@ -422,7 +428,7 @@ function! Python_init()
 endfunction
 "jedi
 let g:jedi#completions_enabled = 0
-let g:jedi#force_py_version = 3
+"let g:jedi#force_py_version = 3
 let g:jedi#auto_vim_configuration = 0
 if !exists('g:neocomplete#force_omni_input_patterns')
     let g:neocomplete#force_omni_input_patterns = {}
