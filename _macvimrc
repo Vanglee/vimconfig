@@ -96,7 +96,7 @@ Plugin 'davidhalter/jedi-vim'
 "Plugin 'ujihisa/vimshell-ssh'
 
 "Plugin 'chrisbra/vim-diff-enhanced'
-"Plugin 'li-yanqing/vim-json-line-format' 
+Plugin 'li-yanqing/vim-json-line-format' 
 
 
 "color
