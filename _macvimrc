@@ -98,6 +98,8 @@ Plugin 'davidhalter/jedi-vim'
 "Plugin 'chrisbra/vim-diff-enhanced'
 Plugin 'li-yanqing/vim-json-line-format' 
 
+Plugin 'groovyindent-unix' 
+
 
 "color
 "Plugin 'dw_colors'
