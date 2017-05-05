@@ -1,3 +1,15 @@
+"input method 
+"set imdisable
+"set imactivatekey=D-space
+"set imsearch=0
+"set imcmdline=0
+"autocmd! InsertLeave * set imdisable|set iminsert=0
+"autocmd! InsertEnter * set noimdisable|set iminsert=2
+
+set noimd
+set imi=2
+set ims=2
+
 
 
 set nocompatible              " be iMproved, required
@@ -19,6 +31,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'SuperTab'
 Plugin 'dkprice/vim-easygrep'
 Plugin 'VimExplorer'
+Plugin 'ianva/vim-youdao-translater'
 Plugin 'quickrun.vim'
 
 "Plugin 'Shougo/neocomplete.vim'
@@ -33,6 +46,7 @@ Plugin 'easymotion/vim-easymotion'
 "Plugin 'terryma/vim-multiple-cursors'
 
 "Plugin 'rking/ag.vim'
+Plugin 'dhruvasagar/vim-table-mode'
 
 Plugin 'vim-easy-align'
 "Plugin 'HTML-AutoCloseTag'
@@ -414,9 +428,8 @@ let g:SuperTabRetainCompletionType = 0
 "let g:SuperTabDefaultCompletionType = '<c-x><c-u>'
 
 "translator.vim
-nnoremap <leader>tr :TranCursor<CR>
-vnoremap <leader>tr :TranCursor<CR>
-nnoremap <leader>tc :TranClose<CR>
+nnoremap <leader>tr :<C-u>Ydc<CR>
+vnoremap <leader>tr :<C-u>Ydv<CR>
 
 "vim-markdown
 let g:vim_markdown_folding_disabled = 1
@@ -549,7 +562,7 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 """ neosnippets ---------------------------------------------------------------------------------------------------
 " Plugin key-mappings.
@@ -589,6 +602,7 @@ let g:neocomplete#sources#dictionary#dictionaries = {
             \ 'default' : $HOME.'/.vimconfig/engwords-long.txt',
             \ 'php' : 'e:\programs\vim\php_funclist.txt',
             \ 'markdown' : $HOME.'/.vimconfig/engwords-long.txt',
+            \ 'text' : $HOME.'/.vimconfig/engwords-long.txt',
             \ 'java' : $HOME.'/.vimconfig/jdk.dict',
             \ 'groovy' : $HOME.'/.vimconfig/groovy.dict,'.$HOME.'/.vimconfig/javafx.dict,'.$HOME.'/.vimconfig/vds.dict',
             \ 'gradle' : $HOME.'/.vimconfig/gradle.dict',

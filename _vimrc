@@ -15,7 +15,7 @@ Plugin 'dkprice/vim-easygrep'
 Plugin 'VimExplorer'
 
 "Plugin 'ianva/vim-youdao-translater'
-Plugin 'FuDesign2008/translator.vim'
+Plugin 'translator.vim'
 
 "Plugin 'The-NERD-tree'
 "Plugin 'mru.vim'
