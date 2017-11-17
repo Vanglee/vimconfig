@@ -73,7 +73,6 @@ Plugin 'Shougo/neosnippet-snippets'
 
 
 Plugin 'majutsushi/tagbar'
-Plugin 'scrooloose/syntastic'
 
 "Plugin 'aquach/vim-http-client'
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -467,8 +466,6 @@ let g:neocomplete#force_omni_input_patterns.python = '\%([^. \t]\.\|^\s*@\|^\s*f
 "endfunction
 
 
-
-
 "VimShell
 nnoremap ,,v <Esc>:VimShell<cr>
 let g:vimshell_max_directory_stack=200
@@ -556,14 +553,8 @@ let g:ctrlp_custom_ignore = {
 "Unite
 nmap <Leader>l  <esc>:Unite outline<cr><esc>:sleep 100 m<cr>i
 
-"syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
+
+
 """ neosnippets ---------------------------------------------------------------------------------------------------
 " Plugin key-mappings.
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
@@ -600,7 +591,7 @@ let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 " Define dictionary.
 let g:neocomplete#sources#dictionary#dictionaries = {
             \ 'default' : $HOME.'/.vimconfig/engwords-long.txt',
-            \ 'php' : 'e:\programs\vim\php_funclist.txt',
+            \ 'php' : $HOME.'/.vimconfig/php_funclist.txt',
             \ 'markdown' : $HOME.'/.vimconfig/engwords-long.txt',
             \ 'text' : $HOME.'/.vimconfig/engwords-long.txt',
             \ 'java' : $HOME.'/.vimconfig/jdk.dict',
